@@ -1,0 +1,112 @@
+sql constraints : unique, primary key, foreign key
+
+Primary Key: Uniquely identifies each row in a table, must be unique and not null, only one primary key per table.
+
+Unique Key: Enforces uniqueness, can have multiple unique keys per table, can have NULL values (with the exception of columns that are part of the primary key if they're used in the unique key).
+
+candidate keys -  those can be primary keys
+
+show databases;
+create database sale;
+drop database sale;
+use sale;
+
+create table customer_info(
+id int,
+first_name varchar(25), 
+last_name varchar(25));
+
+
+create table customer_infotable2(
+id int auto_increment,
+first_name varchar(25), 
+last_name varchar(25),
+salary integer,
+primary key (id)
+);
+
+create table orders(
+orderid int not null,
+ordernumber int not null, 
+cust_id int,
+primary key(orderid),
+foreign key(cust_id) references customer_infotable2(id)
+);
+
+
+show tables;
+
+describe customer_infotable2;
+desc orders;
+
+insert into customer_infotable2(first_name,last_name,salary) values("iming","riya",12345);
+insert into customer_infotable2(first_name,last_name,salary) values("riya","iming",123456);
+insert into customer_infotable2(first_name,last_name,salary) values("choi","bha",45678);
+insert into customer_infotable2(first_name,last_name,salary) values("rams","r",600000),("sree","s",90000);
+insert into customer_infotable2(first_name,last_name,salary) values("dsfsdf","bsdfsfha",null);
+
+insert into orders values(1,123,1);
+
+select * from customer_infotable2;
+
+SELECT *
+FROM customer_infotable2 as a
+INNER JOIN orders as b
+ON a.id = b.cust_id;
+
+SELECT *
+FROM customer_infotable2 as a
+left JOIN orders as b
+ON a.id = b.cust_id;
+
+SELECT *
+FROM customer_infotable2 as a
+right JOIN orders as b
+ON a.id = b.cust_id;
+
+SELECT *
+FROM customer_infotable2
+left OUTER JOIN orders ON customer_infotable2.id = orders.cust_id order by salary;
+
+
+select first_name,last_name from customer_info order by last_name asc;
+select * from customer_info where last_name="bha" or last_name="r";
+select * from customer_info where last_name="bha" and first_name="choi";
+select * from orders 
+
+set SQL_SAFE_UPDATES = 0;
+update customer_infotable2 set salary=10000 where id=6;
+
+alter table employees add dept varchar(20);
+alter table customer_infotable2
+modify column salary float not null;
+
+alter table customer_infotable2
+add constraint uc_employee unique(first_name,last_name);
+
+
+alter table customer_infotable2
+add unique(last_name);
+
+delete from employees where emp_id=2;
+
+drop table if exists customer_info;
+drop table customer_infotable2;
+
+
+for transactions sql db
+
+
+with this data try to find out sum of balance 
+
+Try to find out avarage of balance 
+try to find out who is having a min balance 
+try to find out who is having a mazxmim balance 
+try to prepare a list of all the person who is having loan 
+try to find out average balance for all the people whose job role is admin 
+try to find out a record  without job whose age is below 45 
+try to find out a record where education is primarty and person is jobless
+try to find of a record whose bank account is having a negative balance 
+try to find our a record who is not having house at all along with there balance 
+
+
