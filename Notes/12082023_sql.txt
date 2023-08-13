@@ -1,0 +1,73 @@
+1. Download mysql for windows
+
+click mysql downloads
+click mysql community gpl downloads in the end
+click on mysql installer for windows
+click download based on detected os, msi installer
+click no thanks, just start my download
+click installer
+choosing a setup type - full -next
+installation - execute (6 products will be available) - next
+next
+type and networking - next
+next
+accounts and roles:
+
+root password: 
+repeat password:
+next
+next
+execute
+finish 
+next
+finish
+next
+enter password
+execute
+finish
+next
+finish
+
+2. open mysql workbench and root password
+
+3. create database and perform crud operations.
+
+dbms-database management system
+databse - to store, retrive, managing data
+
+language used to store data - sql structured query language
+
+a) sql db - rdbms (relational database managment system
+)-> structured (table) rows and columns relations
+
+common lang - sql
+
+different syntax/dialect for each db - mysql. postgresql, oracle, db2, sqlite
+
+b) nosql database - mongodb
+
+table itself called schema
+
+commands:
+
+create database iNeuron;
+
+use iNeuron;
+
+create table employees(emp_id INT, 
+first_name varchar(50), 
+last_name varchar(50),
+DOB date,
+hire_date date,
+position varchar(30),
+salary float);
+
+select * from employees;
+
+Types of commands: 
+
+ddl - create , alter, drop
+dml - insert, update, delete, merge
+dql - select
+dcl - grant, revoke
+tcl - commit, rollback, savepoint
